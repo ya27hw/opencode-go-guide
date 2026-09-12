@@ -1,0 +1,10 @@
+[project]
+name = "opencode-go-guide"
+version = "1.0.0"
+description = "Unofficial guide to OpenCode and the $10/month OpenCode Go plan"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"

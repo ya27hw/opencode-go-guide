@@ -1,6 +1,11 @@
 BASE ?= https://ya27hw.github.io/opencode-go-guide
 
-.PHONY: verify verify-wait verify-local assets og serve
+.PHONY: test verify verify-wait verify-local assets serve check
+
+check: test verify-local ## everything offline
+
+test: ## run the test suite (source contract + tool scripts)
+	python3 -m pytest
 
 verify: ## verify the deployed site (canonical check after any change)
 	python3 tools/check_live_site.py --base $(BASE)
