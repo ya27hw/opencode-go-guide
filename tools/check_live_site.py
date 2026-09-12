@@ -63,13 +63,30 @@ def main() -> int:
     base = args.base.rstrip("/")
 
     deadline = time.time() + args.wait
+
+    # After a fresh deploy GitHub Pages propagates individual paths at different speeds, so a
+    # homepage 200 does not mean /go/ or /css/style.css are live yet. Poll every path we intend
+    # to check, otherwise a fresh deploy reads as broken.
+    pending = ["/", "/go/", "/robots.txt", "/sitemap.xml", "/css/style.css",
+               "/css/guide.css", "/og-image.png", "/assets/screenshot.webp", "/.nojekyll"]
     while True:
-        code, body = get(f"{base}/?cb={time.time()}")
-        if code == "200" and "OpenCode" in body:
+        still_missing = []
+        for p in pending:
+            c, _ = get(f"{base}{p}?cb={time.time()}")
+            if c == "404":
+                still_missing.append(p)
+        pending = still_missing
+        if not pending:
+            print("all paths are live")
             break
         if time.time() >= deadline:
+            print(f"still 404 after waiting: {pending}")
             break
+        print(f"waiting for {len(pending)} path(s) to propagate: {pending}")
         time.sleep(10)
+
+    code, body = get(f"{base}/?cb={time.time()}")
+    check(code == "200", "homepage returns 200")
 
     body = page(base, "/", [("$10/month", True), ('id="go"', True)], "home")
     page(base, "/go/", [('id="limits"', True), ('id="pricing"', True),
@@ -101,8 +118,14 @@ def main() -> int:
             check(c == "200", f"og:image resolves -> {c}")
 
     print("\n--- performance ---")
+    # content type comes from the response header, not the (binary) body
+    hdr = subprocess.run(
+        ["curl", "-sL", "-I", "-A", UA, "--max-time", "30", base + "/assets/screenshot.webp"],
+        capture_output=True).stdout.decode("utf-8", errors="ignore")
+    ct = re.search(r"(?im)^content-type:\s*(\S+)", hdr)
+    check(bool(ct) and "image/webp" in ct.group(1),
+          f"hero served with a webp content-type (got {(ct.group(1) if ct else 'none')})")
     c, webp = get(base + "/assets/screenshot.webp")
-    check("image/webp" in webp, "hero is served as WebP")
     check(len(webp) < 150_000, f"hero under 150 KB ({len(webp)//1024} KB)")
 
     print("\nRESULT:", "PASS" if not fails else f"FAIL -> {fails}")
