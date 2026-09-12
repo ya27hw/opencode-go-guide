@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCode Go Review 2026: Pricing, Limits &amp; Is It Worth It?</title>
+<meta name="description" content="OpenCode Go costs $10/month and gives one API key access to 27 open coding models. Here is exactly how the per-model limits work, and whether it is worth it.">
+<link rel="canonical" href="https://ya27hw.github.io/opencode-go-guide/go/">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCode Go Review 2026: Pricing, Limits &amp; Is It Worth It?">
+<meta property="og:description" content="$10/month, 27 models, and a per-model limit system most reviews get wrong. Verified against the official docs.">
+<meta property="og:url" content="https://ya27hw.github.io/opencode-go-guide/go/">
+<meta property="og:image" content="https://ya27hw.github.io/opencode-go-guide/og-image.png">
+<meta property="og:image:alt" content="OpenCode terminal UI showing an AI coding agent session">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenCode Go Review 2026: Pricing, Limits &amp; Is It Worth It?">
+<meta name="twitter:description" content="$10/month, 27 models, and a per-model limit system most reviews get wrong.">
+<meta name="twitter:image" content="https://ya27hw.github.io/opencode-go-guide/og-image.png">
+
+<!-- JSON-LD: article + FAQ. Both describe content that is visible on this page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "OpenCode Go Review 2026: Pricing, Limits and Whether It Is Worth It",
+      "description": "A verified review of OpenCode Go: $10/month, 27 models, and how the per-model usage limits work in practice.",
+      "dateModified": "2026-09-11",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ya27hw.github.io/opencode-go-guide/go/"
+      },
+      "author": { "@type": "Person", "name": "ya27hw" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does OpenCode Go cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenCode Go is $10 per month. You can cancel at any time, and you can top up credit if you need more than the monthly allowance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the OpenCode Go usage limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Limits are per model, not one shared number. Each model has a monthly dollar cap of $15, $30 or $60, of which you can spend 20% per 5 hours, 50% per week and 100% per month. For example, DeepSeek V4 Flash has a $30 monthly cap, so $6 per 5 hours and $15 per week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is OpenCode Go worth it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is good value if you use a coding agent daily and are happy with fast open models for most work, since the per-model caps mean cheap models give enormous volume. It suits you less well if you need uninterrupted access to one flagship model, because those have a deliberately small allowance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use OpenCode Go with an agent other than OpenCode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. OpenCode Go works as a normal model provider, so you can use it with OpenCode itself or with another agent by pointing it at the provider and API key."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get $5 of credit on OpenCode Go?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenCode runs a referral programme: signing up through a referral link gives both the new subscriber and the referrer $5 in usage credit, on top of the normal plan and at no extra cost."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/opencode-go-guide/css/style.css">
+<link rel="stylesheet" href="/opencode-go-guide/css/guide.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand"><span class="dollar">$</span> opencode</div>
+    <nav class="top">
+      <a href="/opencode-go-guide/">Home</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#limits">Limits</a>
+      <a href="#worth-it">Worth it?</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="breadcrumb"><a href="/opencode-go-guide/">Home</a> › OpenCode Go guide</p>
+  </div>
+
+  <article class="guide">
+    <div class="wrap">
+
+      <h1>OpenCode Go review: pricing, limits and whether it is worth it</h1>
+
+      <div class="answer">
+        <p>OpenCode Go is a <strong>$10/month</strong> subscription from the OpenCode team that gives one API key access to <strong>27 open coding models</strong>. Usage limits are set <strong>per model</strong> rather than shared: each model has a monthly dollar cap of $15, $30 or $60, and you can spend 20% of that cap every 5 hours and 50% per week. There is no free tier — OpenCode itself is free and open source, and Go is the optional paid model plan.</p>
+      </div>
+
+      <p class="updated">Facts on this page verified against the official documentation on 11 September 2026.</p>
+
+      <h2 id="what">What is OpenCode Go?</h2>
+      <p>OpenCode is a free, open source AI coding agent — the agent software costs nothing and is MIT licensed. <strong>OpenCode Go</strong> is a separate, optional subscription for the models it runs on, sold by the same team.</p>
+      <p>Instead of paying per token across a dozen providers, you pay a flat monthly fee and get a curated set of open coding models through a single API key. Because it behaves like a normal model provider, you can use it with OpenCode itself or with <a href="https://opencode.ai/docs/go/" rel="nofollow noopener">any other agent</a> that accepts a custom provider.</p>
+
+      <h2 id="pricing">OpenCode Go pricing</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>OpenCode Go pricing, verified 11 September 2026</caption>
+          <thead>
+            <tr><th>Item</th><th>Cost</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Subscription</td><td class="num">$10 / month</td><td>Cancel any time</td></tr>
+            <tr><td>Extra credit</td><td class="num">Optional</td><td>Top up if you exceed the allowance</td></tr>
+            <tr><td>Referral credit</td><td class="num">$5 each</td><td>Both sides, on top of the plan</td></tr>
+            <tr><td>The agent software</td><td class="num">Free</td><td>Open source, MIT licensed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>There is one flat price and no per-token billing to track. That predictability is the main reason people choose it over a pay-as-you-go provider.</p>
+
+      <h2 id="limits">How the usage limits actually work</h2>
+      <p>This is the part most write-ups get wrong. There is no single usage number for OpenCode Go. Every model carries its <strong>own monthly dollar cap</strong>, and the caps differ:</p>
+      <ul>
+        <li>Caps are <strong>$15, $30 or $60 per month</strong>, depending on the model.</li>
+        <li>You may spend <strong>20% of that cap in any 5-hour window</strong>.</li>
+        <li>You may spend <strong>50% of that cap in any week</strong>.</li>
+        <li>The full cap is available across the month.</li>
+      </ul>
+      <p><strong>Worked example:</strong> DeepSeek V4 Flash has a $30 monthly cap, which works out at $6 per 5 hours, $15 per week and $30 per month.</p>
+      <p>The practical consequence is that the model you pick changes your access by two orders of magnitude. The fastest, cheapest models are effectively unlimited for normal coding work; the flagships are a small monthly allowance.</p>
+
+      <h2 id="requests">What the limits look like in requests</h2>
+      <p>OpenCode publishes its own request estimates, which make the trade-off concrete:</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Estimated requests per model (OpenCode's own figures, September 2026)</caption>
+          <thead>
+            <tr><th>Model</th><th>Monthly cap</th><th>Per 5 hours</th><th>Per week</th><th>Per month</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>MiMo V2.5</td><td class="num">$60</td><td class="num">~30,100</td><td class="num">~75,200</td><td class="num">~150,400</td></tr>
+            <tr><td>DeepSeek V4 Flash</td><td class="num">$30</td><td class="num">~13,000</td><td class="num">~32,500</td><td class="num">~65,000</td></tr>
+            <tr><td>GLM-5.3-Flash</td><td class="num">$60</td><td class="num">~6,320</td><td class="num">~15,790</td><td class="num">~31,580</td></tr>
+            <tr><td>Qwen3.8 Flash</td><td class="num">$30</td><td class="num">~5,400</td><td class="num">~13,500</td><td class="num">~27,000</td></tr>
+            <tr><td>MiniMax M3</td><td class="num">$60</td><td class="num">~3,200</td><td class="num">~8,000</td><td class="num">~16,000</td></tr>
+            <tr><td>Kimi K2.7 Code</td><td class="num">$60</td><td class="num">~1,350</td><td class="num">~3,380</td><td class="num">~6,750</td></tr>
+            <tr><td>Grok 4.6</td><td class="num">$15</td><td class="num">~169</td><td class="num">~423</td><td class="num">~845</td></tr>
+            <tr><td>Kimi K3</td><td class="num">$15</td><td class="num">~110</td><td class="num">~250</td><td class="num">~490</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Most complaints that OpenCode Go &ldquo;runs out too fast&rdquo; trace back to using the most expensive model on the list for every task. Route boilerplate, tests and refactors to a cheap model and the plan stretches a long way.</p>
+
+      <h2 id="models">Which models do you get?</h2>
+      <p>27 models as of September 2026, spanning several families:</p>
+      <ul>
+        <li><strong>DeepSeek</strong> — V4.1 Flash, V4 Flash, V4 Flash Vision (experimental), V4 Pro</li>
+        <li><strong>GLM</strong> — 5.3, 5.3-Flash, 5.2, 5.1</li>
+        <li><strong>Kimi</strong> — K3, K2.7 Code, K2.6</li>
+        <li><strong>MiniMax</strong> — M3, M2.7, M2.5</li>
+        <li><strong>Qwen</strong> — 3.8 Max, 3.8 Flash, 3.7 Max, 3.7 Plus, 3.6 Plus</li>
+        <li><strong>Others</strong> — MiMo V2.5 and V2.5 Pro, LongCat-2.0, Hy3, Hy4 preview, Grok 4.6, GPT 5.6 Luna, Muse Spark 1.3 and 1.2 Contributor</li>
+      </ul>
+
+      <h2 id="worth-it">Is OpenCode Go worth it?</h2>
+      <div class="verdict">
+        <div class="box">
+          <h3>Worth it if&hellip;</h3>
+          <ul>
+            <li>You run a coding agent most days and a fast open model handles most of it.</li>
+            <li>You want flat, predictable billing instead of watching token spend.</li>
+            <li>You want stable access without juggling several provider accounts.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Not worth it if&hellip;</h3>
+          <ul>
+            <li>You need uninterrupted access to one specific flagship model — those caps are deliberately small.</li>
+            <li>You code occasionally enough that free tiers cover you.</li>
+            <li>You need a model that is not on the curated list.</li>
+          </ul>
+        </div>
+      </div>
+      <p>Judged on its own terms — a large allowance on fast open models, a modest one on flagships — it is a good deal for $10/month, and the monthly terms mean you are not locked in.</p>
+
+      <div class="cta-box">
+        <h2>Get $5 of credit when you subscribe</h2>
+        <p>OpenCode gives $5 in usage credit to both sides when you sign up through a referral link. It sits on top of the normal plan and costs you nothing extra.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn" href="https://opencode.ai/go?ref=APMP0ZVD7S" rel="sponsored noopener">Get OpenCode Go — $5 credit</a>
+        </div>
+        <p class="disclosure">Referral link: both sides receive $5 in usage credit. This page is independently maintained and is not affiliated with the OpenCode project.</p>
+      </div>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq">
+        <details open>
+          <summary>How much does OpenCode Go cost?</summary>
+          <p>$10 per month. You can cancel at any time, and you can top up credit if you need more than the monthly allowance.</p>
+        </details>
+        <details>
+          <summary>What are the usage limits?</summary>
+          <p>Limits are per model, not one shared number. Each model has a monthly dollar cap of $15, $30 or $60, of which you can spend 20% per 5 hours, 50% per week and 100% per month. DeepSeek V4 Flash, for example, has a $30 cap — so $6 per 5 hours and $15 per week.</p>
+        </details>
+        <details>
+          <summary>Is OpenCode Go worth it?</summary>
+          <p>Yes if you use a coding agent daily and are happy with fast open models for most work, because the cheap models give enormous volume for $10. It suits you less well if you need one flagship model all day — those have a deliberately small allowance.</p>
+        </details>
+        <details>
+          <summary>Can I use it with an agent other than OpenCode?</summary>
+          <p>Yes. It works as a normal model provider, so you can point OpenCode or another agent at it using the provider and your API key.</p>
+        </details>
+        <details>
+          <summary>Is this the official OpenCode website?</summary>
+          <p>No. This is an independent guide that uses a referral link. The official documentation is at opencode.ai, and the source is on GitHub.</p>
+        </details>
+      </div>
+
+      <p style="margin-top:34px"><a href="/opencode-go-guide/">← Back to the main OpenCode guide</a></p>
+
+    </div>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Unofficial personal guide · not affiliated with the OpenCode project</span>
+    <span class="disc">This page uses a referral link. Facts checked 11 Sep 2026.</span>
+  </div>
+</footer>
+
+</body>
+</html>
